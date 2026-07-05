@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: formuser
+      POSTGRES_PASSWORD: formpass
+      POSTGRES_DB: formplatform
+    ports:
+      - "5432:5432"
+    volumes:
+      - form_pg_data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql+psycopg2://formuser:formpass@db:5432/formplatform
+      CORS_ORIGINS: "*"
+    ports:
+      - "8000:8000"
+
+volumes:
+  form_pg_data:

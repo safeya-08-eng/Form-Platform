@@ -1,0 +1,142 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f4f5f7;
+  color: #1c1f26;
+}
+
+.app-shell { min-height: 100vh; }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 32px;
+  background: #ffffff;
+  border-bottom: 1px solid #e3e5e8;
+}
+.navbar-brand { font-weight: 700; font-size: 18px; }
+.navbar-links a { color: #3454d1; text-decoration: none; font-weight: 500; }
+
+.page { max-width: 1100px; margin: 0 auto; padding: 24px 32px 64px; }
+.public-page { max-width: 700px; padding-top: 48px; }
+
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+
+.card {
+  background: #fff;
+  border: 1px solid #e3e5e8;
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+
+.btn {
+  border: 1px solid #d5d8dd;
+  background: #fff;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.btn:hover:not(:disabled) { background: #f0f1f3; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-primary { background: #3454d1; color: #fff; border-color: #3454d1; }
+.btn-primary:hover:not(:disabled) { background: #2c46b5; }
+.btn-secondary { background: #eef0f3; }
+.btn-danger { background: #fff; color: #c62828; border-color: #f0c6c6; }
+.btn-danger:hover:not(:disabled) { background: #fdeaea; }
+.btn-sm { padding: 5px 10px; font-size: 13px; }
+.btn-link { background: none; border: none; color: #3454d1; padding: 0 0 12px; cursor: pointer; }
+
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.badge-gray { background: #eceef1; color: #555; }
+.badge-green { background: #e3f5e9; color: #1e8a48; }
+.badge-red { background: #fbe6e6; color: #c62828; }
+
+.create-form { display: flex; flex-direction: column; gap: 10px; max-width: 480px; }
+.create-form label { display: flex; flex-direction: column; gap: 4px; font-size: 14px; font-weight: 500; }
+.create-form input, .create-form textarea { padding: 8px; border: 1px solid #d5d8dd; border-radius: 6px; font-size: 14px; }
+
+.form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.form-card { cursor: pointer; transition: box-shadow .15s; }
+.form-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+.form-card-header { display: flex; justify-content: space-between; align-items: flex-start; }
+.form-card-desc { color: #666; font-size: 14px; min-height: 20px; }
+.form-card-meta { font-size: 12px; color: #888; }
+
+.empty-state { color: #888; font-style: italic; }
+.alert { padding: 10px 14px; border-radius: 6px; margin-bottom: 16px; }
+.alert-error { background: #fdeaea; color: #c62828; }
+
+.builder-header-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.title-input { font-size: 20px; font-weight: 700; border: none; background: transparent; width: 100%; padding: 4px 0; }
+.title-input:focus { outline: 1px solid #3454d1; border-radius: 4px; }
+.desc-input { width: 100%; border: none; background: transparent; resize: vertical; font-size: 14px; color: #555; margin-top: 6px; padding: 4px 0; }
+.desc-input:focus { outline: 1px solid #3454d1; border-radius: 4px; }
+
+.builder-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+
+.share-link-box { display: flex; align-items: center; gap: 10px; margin-top: 12px; background: #f4f5f7; padding: 8px 12px; border-radius: 6px; }
+.share-link-box code { flex: 1; overflow-x: auto; font-size: 13px; }
+
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.35);
+  display: flex; align-items: center; justify-content: center; z-index: 50;
+}
+.modal { max-width: 420px; width: 90%; }
+
+.version-list { display: flex; flex-direction: column; gap: 8px; }
+.version-row { display: flex; align-items: center; gap: 12px; font-size: 14px; padding: 6px 0; border-bottom: 1px solid #f0f1f3; }
+.version-number { font-weight: 700; color: #3454d1; }
+.version-title { flex: 1; }
+.version-date { color: #888; font-size: 12px; }
+
+.builder-layout { display: grid; grid-template-columns: 260px 1fr; gap: 20px; align-items: start; }
+.builder-canvas h3 { margin-top: 0; }
+
+.palette h3 { margin-top: 0; }
+.palette-hint { font-size: 12px; color: #888; margin-top: -6px; }
+.palette-grid { display: flex; flex-direction: column; gap: 8px; }
+.palette-card {
+  text-align: left; padding: 10px 12px; border: 1px solid #d5d8dd; border-radius: 6px;
+  background: #fafbfc; cursor: pointer; font-size: 14px;
+}
+.palette-card:hover:not(:disabled) { background: #eef0f3; }
+
+.field-list { display: flex; flex-direction: column; gap: 10px; }
+.field-row { padding: 12px 14px; }
+.field-row-header { display: flex; align-items: center; gap: 10px; }
+.drag-handle { cursor: grab; color: #999; font-size: 18px; touch-action: none; }
+.drag-handle.disabled { cursor: not-allowed; opacity: 0.4; }
+.field-row-meta { flex: 1; display: flex; align-items: center; gap: 8px; }
+.field-type-tag { font-size: 12px; color: #888; background: #f0f1f3; padding: 2px 8px; border-radius: 999px; }
+.field-row-actions { display: flex; gap: 6px; }
+
+.field-config-form { margin-top: 12px; padding-top: 12px; border-top: 1px solid #f0f1f3; display: flex; flex-direction: column; gap: 10px; }
+.prop-row { display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 500; }
+.prop-row input, .prop-row textarea { padding: 7px; border: 1px solid #d5d8dd; border-radius: 5px; font-size: 14px; font-weight: normal; }
+.checkbox-row { flex-direction: row; align-items: center; gap: 6px; font-weight: normal; }
+.field-config-actions { display: flex; gap: 8px; }
+
+.preview h2 { margin-top: 0; }
+.preview-desc { color: #666; }
+.preview-fields { display: flex; flex-direction: column; gap: 16px; margin-top: 16px; }
+.preview-field label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; }
+.preview-field input, .preview-field select, .preview-field textarea { padding: 8px; border: 1px solid #d5d8dd; border-radius: 6px; width: 100%; max-width: 420px; }
+.required-star { color: #c62828; }
+.checkbox-group { display: flex; flex-direction: column; gap: 6px; }
+.rating-stars { font-size: 22px; color: #f5a623; letter-spacing: 4px; }
+.field-hint { font-size: 12px; color: #888; margin-top: 4px; }
+
+.public-form-card { max-width: 700px; }
+.version-tag { font-size: 12px; color: #999; margin-top: 10px; }
